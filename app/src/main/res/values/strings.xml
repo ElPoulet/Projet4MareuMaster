@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">MaReu-OC-Projet4</string>
+    <string name="str_tri_croissant">Tri croissant</string>
+    <string name="str_tri_decroissant">Tri décroissant</string>
+    <string name="participants_item">Participants</string>
+    <string name="valider_item">Valider</string>
+    <string name="heure_item">Heure</string>
+    <string name="salle_item">Salle</string>
+    <string name="sujet_de_la_r_union_item">Sujet de la réunion</string>
+
+    <string-array name="Rooms">
+        <item>Salle 1</item>
+        <item>Salle 2</item>
+        <item>Salle 3</item>
+        <item>Salle 4</item>
+        <item>Salle 5</item>
+        <item>Salle 6</item>
+        <item>Salle 7</item>
+        <item>Salle 8</item>
+        <item>Salle 9</item>
+        <item>Salle 10</item>
+    </string-array>
+
+</resources>

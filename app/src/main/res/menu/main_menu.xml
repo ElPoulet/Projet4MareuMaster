@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/enter_menu"
+        android:title="Menu">
+        <item android:id="@+id/tri_date"
+            android:title="Tri par Date" />
+        <item android:id="@+id/tri_salle"
+            android:title="Tri par Salle" >
+            <menu>
+                <item android:id="@+id/salle1"
+                    android:title="Salle 1" />
+                <item android:id="@+id/salle2"
+                    android:title="Salle 2" />
+                <item android:id="@+id/salle3"
+                    android:title="Salle 3" />
+                <item android:id="@+id/salle4"
+                    android:title="Salle 4" />
+                <item android:id="@+id/salle5"
+                    android:title="Salle 5" />
+                <item android:id="@+id/salle6"
+                    android:title="Salle 6" />
+                <item android:id="@+id/salle7"
+                    android:title="Salle 7" />
+                <item android:id="@+id/salle8"
+                    android:title="Salle 8" />
+                <item android:id="@+id/salle9"
+                    android:title="Salle 9" />
+                <item android:id="@+id/salle10"
+                    android:title="Salle 10" />
+            </menu>
+        </item>
+        <item android:id="@+id/tri_base"
+            android:title="Tri de Base" />
+    </item>
+
+
+</menu>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:gravity="center_horizontal"
+            android:text="Nouvelle Reunion"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textStyle="italic"
+            android:textSize="28dp"
+            android:layout_marginBottom="50dp"/>
+
+        <EditText
+            android:id="@+id/Text_name"
+            android:hint="Sujet"
+            android:textSize="22dp"
+            android:textAlignment="center"
+            android:background="@drawable/border_shadows"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp" />
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:background="@drawable/border_shadows"
+            android:layout_marginBottom="50dp">
+
+            <TextView
+                android:id="@+id/content_hour"
+                android:layout_width="28dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:inputType="number"/>
+
+            <TextView
+                android:id="@+id/textView_hour"
+                android:layout_width="35dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="20dp"
+                android:textAlignment="center"
+                android:text="H" />
+
+            <TextView
+                android:id="@+id/content_minutes"
+                android:layout_width="26dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:textSize="20dp"
+                android:textAlignment="center"/>
+
+            <Button
+                android:id="@+id/button_add_hour"
+                android:layout_width="152dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/border_shadows"
+                android:backgroundTint="#C62828"
+                android:text="Ajouter une heure"
+                android:textColor="#FFFF"/>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/border_shadows"
+            android:layout_gravity="center"
+            android:layout_marginBottom="50dp">
+
+
+            <TextView
+                android:id="@+id/text_view_date"
+                android:layout_width="197dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:hint="Date"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/btn_add_date"
+                android:layout_width="152dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/border_shadows"
+                android:backgroundTint="#C62828"
+                android:text="Ajouter une date"
+                android:textColor="#FFFF"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/border_shadows"
+            android:backgroundTint="#C62828"
+            android:orientation="vertical">
+
+
+            <Spinner
+                android:id="@+id/spinner_room"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="50dp"
+                android:entries="@array/Rooms"
+                android:textAlignment="center"
+                android:backgroundTint="#FFFF" />
+        </LinearLayout>
+
+
+        <EditText
+            android:id="@+id/editText_participants"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Participants"
+            android:textSize="22dp"
+            android:textAlignment="center"
+            android:background="@drawable/border_shadows"
+            android:layout_marginBottom="50dp" />
+
+        <Button
+            android:id="@+id/button_validate"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#C62828"
+            android:text="@string/valider_item"
+            android:textColor="#FFFF"/>
+
+    </LinearLayout>
+
+</ScrollView>
