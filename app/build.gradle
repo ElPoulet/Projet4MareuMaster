@@ -1,12 +1,10 @@
 apply plugin: 'com.android.application'
 
-apply plugin: 'com.android.application'
-
 android {
     compileSdkVersion 29
     buildToolsVersion '28.0.3'
     defaultConfig {
-        applicationId "com.example.projet4_mareumaster"
+        applicationId "com.example.mareu_oc_projet4"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1

@@ -7,6 +7,16 @@
     <string name="heure_item">Heure</string>
     <string name="salle_item">Salle</string>
     <string name="sujet_de_la_r_union_item">Sujet de la réunion</string>
+    <string name="room1">Salle 1</string>
+    <string name="room2">Salle 2</string>
+    <string name="room3">Salle 3</string>
+    <string name="room4">Salle 4</string>
+    <string name="room5">Salle 5</string>
+    <string name="room6">Salle 6</string>
+    <string name="room7">Salle 7</string>
+    <string name="room8">Salle 8</string>
+    <string name="room9">Salle 9</string>
+    <string name="room10">Salle 10</string>
 
     <string-array name="Rooms">
         <item>Salle 1</item>

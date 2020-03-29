@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="participants">
+        <item>machin@test.fr</item>
+        <item>truc@test.fr</item>
+        <item>bidule@test.fr</item>
+        <item>dupont@test.fr</item>
+        <item>dupond@test.fr</item>
+        <item>tintin@test.fr</item>
+        <item>milou@test.fr</item>
+        <item>tournesol@test.fr</item>
+        <item>openclassrooms@test.fr</item>
+        <item>mentor@test.fr</item>
+    </string-array>
+    <string name="title">choisir les participants</string>
+</resources>
