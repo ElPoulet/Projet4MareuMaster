@@ -7,15 +7,15 @@ import com.example.mareu_oc_projet4.services.RoomApiService;
 
 public class DI {
 
-    private static MeetingApiService serviceReunion = new DummyMeetingApiService();
-    private static RoomApiService serviceSalle = new DummyRoomApiService();
+    private static MeetingApiService serviceMeeting = new DummyMeetingApiService();
+    private static RoomApiService serviceRoom = new DummyRoomApiService();
 
     /**
      * Get an instance on @{@link MeetingApiService}
      * @return
      */
-    public static MeetingApiService getReunionApiService() {
-        return serviceReunion;
+    public static MeetingApiService getMeetingApiService() {
+        return serviceMeeting;
     }
 
     /**
@@ -26,7 +26,7 @@ public class DI {
         return new DummyMeetingApiService();
     }
 
-    public static RoomApiService getSalleApiService() { return serviceSalle; }
+    public static RoomApiService getSalleApiService() { return serviceRoom; }
 
     public static RoomApiService getNewInstanceSalleApiService() {
         return new DummyRoomApiService();

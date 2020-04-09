@@ -2,14 +2,12 @@ package com.example.mareu_oc_projet4;
 
 import android.widget.DatePicker;
 
-import androidx.test.espresso.ViewInteraction;
 import androidx.test.espresso.contrib.PickerActions;
 import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.rule.ActivityTestRule;
-import androidx.test.runner.AndroidJUnit4;
 
 import com.example.mareu_oc_projet4.utils.DeleteViewAction;
-import com.example.mareu_oc_projet4.vues.MainActivity;
+import com.example.mareu_oc_projet4.view.MainActivity;
 
 import org.hamcrest.Matchers;
 import org.junit.Before;
@@ -21,19 +19,12 @@ import org.junit.runners.JUnit4;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu;
 import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
-import static androidx.test.espresso.action.ViewActions.scrollTo;
-import static androidx.test.espresso.action.ViewActions.typeText;
-import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withClassName;
-import static androidx.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
-import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 import static com.example.mareu_oc_projet4.utils.RecyclerViewItemCountAssertion.withItemCount;
-import static com.example.mareu_oc_projet4.utils.ToolbarMatcher.childAtPosition;
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.notNullValue;
@@ -98,12 +89,8 @@ public class MeetingListTest {
         onView(allOf(withId(R.id.mRecyclerView), isDisplayed())).check(withItemCount(ITEMS_COUNT));
         openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
         onView(ViewMatchers.withText("Tri par Date")).perform(click());
-        //setDate(R.id.tri_date,2020,02,18);
-        //PickerActions.setDate(2020,2,18);
         onView(withClassName(Matchers.equalTo(DatePicker.class.getName()))).perform(PickerActions.setDate(2020, 10, 18));
         onView(ViewMatchers.withText("OK")).perform(click());
-        //onView(withClassName(Matchers.equalTo(DatePicker.class.getName()))).perform(PickerActions.setDate(2020, 02, 18));
-        //setDate(R.id.tri_date,2020,02,18);
         onView(allOf(withId(R.id.mRecyclerView), isDisplayed())).check(withItemCount(ITEMS_COUNT-1));
 
     }

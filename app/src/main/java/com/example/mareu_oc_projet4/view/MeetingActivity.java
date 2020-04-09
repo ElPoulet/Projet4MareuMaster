@@ -1,4 +1,4 @@
-package com.example.mareu_oc_projet4.vues;
+package com.example.mareu_oc_projet4.view;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
@@ -42,7 +42,7 @@ public class MeetingActivity extends AppCompatActivity implements TimePickerDial
 
         spinner = findViewById(R.id.spinner_room);
 
-        mMeetingApiService = DI.getReunionApiService();
+        mMeetingApiService = DI.getMeetingApiService();
         mMeetings = mMeetingApiService.getMeetings();
         mRoomApiService = DI.getSalleApiService();
         mRooms = mRoomApiService.getRooms();

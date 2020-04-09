@@ -1,4 +1,4 @@
-package com.example.mareu_oc_projet4.vues;
+package com.example.mareu_oc_projet4.view;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mApiServices = DI.getReunionApiService();
+        mApiServices = DI.getMeetingApiService();
         initList();
 
         mRecyclerView = findViewById(R.id.mRecyclerView);
@@ -111,62 +111,52 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
 
             case R.id.salle1:
                 extraRoom = getString(R.string.room1);
-                mAdapter.roomFilter(extraRoom);
-                mAdapter.notifyDataSetChanged();
+                useRoomFilter(extraRoom);
                 return true;
 
             case R.id.salle2:
                 extraRoom = getString(R.string.room2);
-                mAdapter.roomFilter(extraRoom);
-                mAdapter.notifyDataSetChanged();
+                useRoomFilter(extraRoom);
                 return true;
 
             case R.id.salle3:
                 extraRoom = getString(R.string.room3);
-                mAdapter.roomFilter(extraRoom);
-                mAdapter.notifyDataSetChanged();
+                useRoomFilter(extraRoom);
                 return true;
 
             case R.id.salle4:
                 extraRoom = getString(R.string.room4);
-                mAdapter.roomFilter(extraRoom);
-                mAdapter.notifyDataSetChanged();
+                useRoomFilter(extraRoom);
                 return true;
 
             case R.id.salle5:
                 extraRoom = getString(R.string.room5);
-                mAdapter.roomFilter(extraRoom);
-                mAdapter.notifyDataSetChanged();
+                useRoomFilter(extraRoom);
                 return true;
 
             case R.id.salle6:
                 extraRoom = getString(R.string.room6);
-                mAdapter.roomFilter(extraRoom);
-                mAdapter.notifyDataSetChanged();
+                useRoomFilter(extraRoom);
                 return true;
 
             case R.id.salle7:
                 extraRoom = getString(R.string.room7);
-                mAdapter.roomFilter(extraRoom);
-                mAdapter.notifyDataSetChanged();
+                useRoomFilter(extraRoom);
                 return true;
 
             case R.id.salle8:
                 extraRoom = getString(R.string.room8);
-                mAdapter.roomFilter(extraRoom);
-                mAdapter.notifyDataSetChanged();
+                useRoomFilter(extraRoom);
                 return true;
 
             case R.id.salle9:
                 extraRoom = getString(R.string.room9);
-                mAdapter.roomFilter(extraRoom);
-                mAdapter.notifyDataSetChanged();
+                useRoomFilter(extraRoom);
                 return true;
 
             case R.id.salle10:
                 extraRoom = getString(R.string.room10);
-                mAdapter.roomFilter(extraRoom);
-                mAdapter.notifyDataSetChanged();
+                useRoomFilter(extraRoom);
                 return true;
 
             case R.id.tri_base:
@@ -205,4 +195,8 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
+    public void useRoomFilter(String extraRoom){
+        mAdapter.roomFilter(extraRoom);
+        mAdapter.notifyDataSetChanged();
+    }
 }

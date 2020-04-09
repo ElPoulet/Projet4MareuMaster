@@ -1,4 +1,4 @@
-package com.example.mareu_oc_projet4.vues;
+package com.example.mareu_oc_projet4.view;
 
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;

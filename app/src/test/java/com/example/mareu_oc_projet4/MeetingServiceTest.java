@@ -9,7 +9,7 @@ import com.example.mareu_oc_projet4.DI.DI;
 import com.example.mareu_oc_projet4.model.Meeting;
 import com.example.mareu_oc_projet4.model.Room;
 import com.example.mareu_oc_projet4.services.MeetingApiService;
-import com.example.mareu_oc_projet4.vues.MeetingAdapter;
+import com.example.mareu_oc_projet4.view.MeetingAdapter;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -33,14 +33,14 @@ public class MeetingServiceTest {
     }
 
     @Test
-    public void deleteReunionWithSuccess() {
+    public void deleteMeetingWithSuccess() {
         Meeting meetingToDelete = service.getMeetings().get(0);
         service.deleteMeeting(meetingToDelete);
         assertFalse(service.getMeetings().contains(meetingToDelete));
     }
 
     @Test
-    public void addReunionWithSuccess() {
+    public void addMeetingWithSuccess() {
         Meeting meeting = new Meeting("Sujet Test","15 Janvier","15","35",new Room(4,"Salle 4", Color.argb(255,98,19,205)),"machin");
         service.setMeetings(meeting);
         meeting = service.getMeetings().get(2);
@@ -48,18 +48,22 @@ public class MeetingServiceTest {
     }
 
     @Test
-    public void salleFilterWithSucces() {
-        String test = "Salle 4";
+    public void RoomFilterWithSucces() {
+        Meeting meeting = new Meeting("Sujet Test","15 Janvier","15","35",new Room(8,"Salle 8", Color.argb(255,98,19,205)),"machin");
+        service.setMeetings(meeting);
+        String test = "Salle 8";
         mAdapter.roomFilter(test);
-        Meeting meeting = service.getMeetings().get(0);
+        Meeting meetingReturn = service.getMeetings().get(0);
         assertTrue(meeting.getNameRoom() == test);
     }
 
     @Test
     public void dateFilterWithSucces() {
-        String test = "18 10 2020";
+        Meeting meeting = new Meeting("Sujet Test","16 10 2020","15","35",new Room(4,"Salle 4", Color.argb(255,98,19,205)),"machin");
+        service.setMeetings(meeting);
+        String test = "16 10 2020";
         mAdapter.dateFilter(test);
-        Meeting meeting = service.getMeetings().get(0);
+        Meeting meetingReturn = service.getMeetings().get(0);
         assertTrue(meeting.getDate() == test);
 
 
