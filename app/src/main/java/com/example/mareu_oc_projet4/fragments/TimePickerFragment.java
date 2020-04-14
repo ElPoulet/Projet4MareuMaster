@@ -1,4 +1,4 @@
-package com.example.mareu_oc_projet4.time_picker_fragment;
+package com.example.mareu_oc_projet4.fragments;
 
 import android.app.Dialog;
 import android.app.TimePickerDialog;

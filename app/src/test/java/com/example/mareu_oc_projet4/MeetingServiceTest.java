@@ -2,6 +2,7 @@ package com.example.mareu_oc_projet4;
 
 import android.graphics.Color;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -24,6 +25,7 @@ public class MeetingServiceTest {
     public List<Meeting> mMeetingList;
     private MeetingAdapter mAdapter;
     private MeetingApiService service;
+    Room roomTest = new Room(8,"Salle 8", Color.argb(255,255,0,120));
 
     @Before
     public void setup() {
@@ -48,13 +50,13 @@ public class MeetingServiceTest {
     }
 
     @Test
-    public void RoomFilterWithSucces() {
-        Meeting meeting = new Meeting("Sujet Test","15 Janvier","15","35",new Room(8,"Salle 8", Color.argb(255,98,19,205)),"machin");
+    public void roomFilterWithSucces() {
+        Meeting meeting = new Meeting("Sujet Test","15 Janvier","15","35",roomTest,"machin");
         service.setMeetings(meeting);
-        String test = "Salle 8";
+        int test = 7;
         mAdapter.roomFilter(test);
         Meeting meetingReturn = service.getMeetings().get(0);
-        assertTrue(meeting.getNameRoom() == test);
+        assertEquals(meetingReturn.getIdRoom(),test+1);
     }
 
     @Test
@@ -64,7 +66,7 @@ public class MeetingServiceTest {
         String test = "16 10 2020";
         mAdapter.dateFilter(test);
         Meeting meetingReturn = service.getMeetings().get(0);
-        assertTrue(meeting.getDate() == test);
+        assertEquals(meetingReturn.getDate(), test);
 
 
     }

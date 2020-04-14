@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -22,12 +23,13 @@ import com.example.mareu_oc_projet4.model.Meeting;
 import com.example.mareu_oc_projet4.model.Room;
 import com.example.mareu_oc_projet4.services.MeetingApiService;
 import com.example.mareu_oc_projet4.services.RoomApiService;
-import com.example.mareu_oc_projet4.time_picker_fragment.DatePickerFragment;
+import com.example.mareu_oc_projet4.fragments.DatePickerFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
@@ -36,6 +38,9 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
     RecyclerView mRecyclerView;
 
     public List<Meeting> mMeetingList;
+    public static List<Integer> roomsIds;
+    public static List<String> roomsNames;
+
     private MeetingAdapter mAdapter;
     private MeetingApiService mApiServices;
     private RoomApiService mRoomApiService;
@@ -51,6 +56,9 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
 
         mApiServices = DI.getMeetingApiService();
         initList();
+
+        roomsIds = Arrays.asList(R.id.salle1,R.id.salle2,R.id.salle3,R.id.salle4,R.id.salle5,R.id.salle6,R.id.salle7,R.id.salle8,R.id.salle9,R.id.salle10);
+        roomsNames = Arrays.asList("Salle 1","Salle 2","Salle 3","Salle 4","Salle 5","Salle 6","Salle 7","Salle 8","Salle 9","Salle 10");
 
         mRecyclerView = findViewById(R.id.mRecyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -103,66 +111,19 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item)
     {
-        switch (item.getItemId()){
-            case R.id.tri_date:
-                DialogFragment datePicker = new DatePickerFragment();
-                datePicker.show(getSupportFragmentManager(),"date Picker");
-                return true;
-
-            case R.id.salle1:
-                extraRoom = getString(R.string.room1);
-                useRoomFilter(extraRoom);
-                return true;
-
-            case R.id.salle2:
-                extraRoom = getString(R.string.room2);
-                useRoomFilter(extraRoom);
-                return true;
-
-            case R.id.salle3:
-                extraRoom = getString(R.string.room3);
-                useRoomFilter(extraRoom);
-                return true;
-
-            case R.id.salle4:
-                extraRoom = getString(R.string.room4);
-                useRoomFilter(extraRoom);
-                return true;
-
-            case R.id.salle5:
-                extraRoom = getString(R.string.room5);
-                useRoomFilter(extraRoom);
-                return true;
-
-            case R.id.salle6:
-                extraRoom = getString(R.string.room6);
-                useRoomFilter(extraRoom);
-                return true;
-
-            case R.id.salle7:
-                extraRoom = getString(R.string.room7);
-                useRoomFilter(extraRoom);
-                return true;
-
-            case R.id.salle8:
-                extraRoom = getString(R.string.room8);
-                useRoomFilter(extraRoom);
-                return true;
-
-            case R.id.salle9:
-                extraRoom = getString(R.string.room9);
-                useRoomFilter(extraRoom);
-                return true;
-
-            case R.id.salle10:
-                extraRoom = getString(R.string.room10);
-                useRoomFilter(extraRoom);
-                return true;
-
-            case R.id.tri_base:
-                mAdapter.resetFilter();
-                return true;
+        if (item.getItemId() == R.id.tri_date){
+            DialogFragment datePicker = new DatePickerFragment();
+            datePicker.show(getSupportFragmentManager(),"date Picker");
         }
+        else if (item.getItemId() == R.id.tri_base)
+            mAdapter.resetFilter();
+        else if(roomsIds.contains(item.getItemId())){ // Ce test nous assure qu'il s'agit du choix d'une salle
+            Log.i("Debug","Index: " + roomsIds.indexOf(item.getItemId()));
+            useRoomFilter(roomsIds.indexOf(item.getItemId()));
+        }
+
+
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -195,7 +156,8 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
-    public void useRoomFilter(String extraRoom){
+    public void useRoomFilter(int extraRoom){
+        Log.i("Debug","Indice: " + extraRoom);
         mAdapter.roomFilter(extraRoom);
         mAdapter.notifyDataSetChanged();
     }

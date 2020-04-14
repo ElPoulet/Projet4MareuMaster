@@ -22,8 +22,8 @@ import com.example.mareu_oc_projet4.model.Meeting;
 import com.example.mareu_oc_projet4.model.Room;
 import com.example.mareu_oc_projet4.services.MeetingApiService;
 import com.example.mareu_oc_projet4.services.RoomApiService;
-import com.example.mareu_oc_projet4.time_picker_fragment.DatePickerFragment;
-import com.example.mareu_oc_projet4.time_picker_fragment.TimePickerFragment;
+import com.example.mareu_oc_projet4.fragments.DatePickerFragment;
+import com.example.mareu_oc_projet4.fragments.TimePickerFragment;
 
 import java.util.List;
 

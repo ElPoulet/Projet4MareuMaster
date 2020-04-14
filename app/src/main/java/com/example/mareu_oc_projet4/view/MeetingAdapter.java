@@ -2,6 +2,7 @@ package com.example.mareu_oc_projet4.view;
 
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,11 +19,13 @@ import com.example.mareu_oc_projet4.model.Meeting;
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
 
 import static butterknife.ButterKnife.bind;
+import static com.example.mareu_oc_projet4.view.MainActivity.roomsNames;
 
 public class MeetingAdapter extends RecyclerView.Adapter<MeetingAdapter.MeetingViewHolder>  {
 
@@ -30,10 +33,13 @@ public class MeetingAdapter extends RecyclerView.Adapter<MeetingAdapter.MeetingV
     private List<Meeting> meetingListFull;
     List<Meeting> meetingStorage;
 
+
+
     public MeetingAdapter(List<Meeting> items) {
 
         meetingList = items;
         meetingListFull = items;
+        roomsNames = Arrays.asList("Salle 1","Salle 2","Salle 3","Salle 4","Salle 5","Salle 6","Salle 7","Salle 8","Salle 9","Salle 10");
     }
 
     @Override
@@ -95,12 +101,16 @@ public class MeetingAdapter extends RecyclerView.Adapter<MeetingAdapter.MeetingV
         meetingList.addAll(filteredList);
     }
 
-    public void roomFilter(String roomCompare) {
+    public void roomFilter(int roomCompare) {
+        Log.i("Debug","Valeur: " + roomCompare);
         meetingStorage = saveList();
         List<Meeting> filteredList = new ArrayList<>();
         for(Meeting item : meetingListFull)
         {
-            if(item.getNameRoom().equals(roomCompare))
+            Log.i("Debug","Item: " + item.getIdRoom());
+            Log.i("Debug","Name: " + item.getNameRoom());
+            Log.i("Debug","roomsNames" + roomsNames.get(roomCompare));
+            if(item.getNameRoom().equals(roomsNames.get(roomCompare)))
             {
                 filteredList.add(item);
             }
